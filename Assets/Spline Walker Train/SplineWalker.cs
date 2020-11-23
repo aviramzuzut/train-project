@@ -12,9 +12,11 @@ public class SplineWalker : MonoBehaviour {
 
 	private float progress;
 	private bool goingForward = true;
+    public Camera trainCamera;
 
 	private void Update () {
-		if (goingForward) {
+        trainCamera.enabled = true;
+        if (goingForward) {
 			progress += (Time.deltaTime / duration);
 			if (progress > 1f) {
 				if (mode == SplineWalkerMode.Once) {
