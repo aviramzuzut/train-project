@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class SplineWalker : MonoBehaviour {
 
@@ -9,12 +10,16 @@ public class SplineWalker : MonoBehaviour {
 	public bool lookForward;
 
 	public SplineWalkerMode mode;
+    public int passengersCounter = 0;
 
 	private float progress;
 	private bool goingForward = true;
+    // private bool isCoroutineExecuting = false;
+
     public Camera trainCamera;
 
 	private void Update () {
+
         trainCamera.enabled = true;
         if (goingForward) {
 			progress += (Time.deltaTime / duration);
@@ -27,16 +32,20 @@ public class SplineWalker : MonoBehaviour {
 				}
 				else {
 					progress = 2f - progress;
-					goingForward = false;
-				}
-			}
+                    // Invoke("SetGoingForward(false)", 10);
+                    // goingForward = false;
+                    StartCoroutine(ExecuteAfterTime(10, false));
+                }
+            }
 		}
 		else {
 			progress -= Time.deltaTime / duration;
 			if (progress < 0f) {
 				progress = - progress;
-				goingForward = true;
-			}
+                // Invoke("SetGoingForward(true)", 10);
+				// goingForward = true;
+                StartCoroutine(ExecuteAfterTime(10, true));
+            }
 		}
 
 		Vector3 position = spline.GetPoint(progress);
@@ -44,5 +53,24 @@ public class SplineWalker : MonoBehaviour {
 		if (lookForward) {
 			transform.LookAt(position + spline.GetDirection(progress));
 		}
-	}
+    }
+
+    void SetGoingForward(bool gf)
+    {
+        goingForward = gf;
+    }
+
+    IEnumerator ExecuteAfterTime(float time, bool gf)
+    {
+        // if (isCoroutineExecuting)
+        //     yield break;
+
+        // isCoroutineExecuting = true;
+
+        yield return new WaitForSeconds(time);
+        // Code to execute after the delay
+        goingForward = gf;
+
+        // isCoroutineExecuting = false;  
+    }
 }
