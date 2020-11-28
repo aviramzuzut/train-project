@@ -1,0 +1,10 @@
+Sources.meta filter=lfs diff=lfs merge=lfs -text
+Conifers[[:space:]][BOTD][[:space:]]Documentation.pdf filter=lfs diff=lfs merge=lfs -text
+CTI[[:space:]]Runtime[[:space:]]Components.meta filter=lfs diff=lfs merge=lfs -text
+Getting[[:space:]]started.txt filter=lfs diff=lfs merge=lfs -text
+Getting[[:space:]]started.txt.meta filter=lfs diff=lfs merge=lfs -text
+Prefabs.meta filter=lfs diff=lfs merge=lfs -text
+Conifers[[:space:]][BOTD][[:space:]]Documentation.pdf.meta filter=lfs diff=lfs merge=lfs -text
+Demo.meta filter=lfs diff=lfs merge=lfs -text
+VSPro_CTIShaderController.unitypackage filter=lfs diff=lfs merge=lfs -text
+VSPro_CTIShaderController.unitypackage.meta filter=lfs diff=lfs merge=lfs -text

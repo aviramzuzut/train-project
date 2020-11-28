@@ -1,0 +1,10 @@
+ShieldWarrior@Walk01[RootMotion].fbx filter=lfs diff=lfs merge=lfs -text
+ShieldWarrior@Walk01[RootMotion].fbx.meta filter=lfs diff=lfs merge=lfs -text
+ShieldWarrior_Walk01.controller.meta filter=lfs diff=lfs merge=lfs -text
+SpartanKing[[:space:]]1.FBX.meta filter=lfs diff=lfs merge=lfs -text
+SpartanKing.FBX filter=lfs diff=lfs merge=lfs -text
+SpartanKing.FBX.meta filter=lfs diff=lfs merge=lfs -text
+ShieldWarrior@Walk01.fbx filter=lfs diff=lfs merge=lfs -text
+ShieldWarrior@Walk01.fbx.meta filter=lfs diff=lfs merge=lfs -text
+ShieldWarrior_Walk01.controller filter=lfs diff=lfs merge=lfs -text
+SpartanKing[[:space:]]1.FBX filter=lfs diff=lfs merge=lfs -text
