@@ -1,0 +1,5 @@
+UnityPlayer.dll filter=lfs diff=lfs merge=lfs -text
+map.png filter=lfs diff=lfs merge=lfs -text
+New[[:space:]]train[[:space:]]Project.exe filter=lfs diff=lfs merge=lfs -text
+ScreenShot.png filter=lfs diff=lfs merge=lfs -text
+UnityCrashHandler32.exe filter=lfs diff=lfs merge=lfs -text
