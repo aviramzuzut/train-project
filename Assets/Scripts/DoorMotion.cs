@@ -9,11 +9,11 @@ public class DoorMotion : MonoBehaviour
     public bool isOpen;
     AudioSource audioSource;
     public AudioClip aClip;
+    public bool activation = false;
 
     // Start is called before the first frame update
     void Start()
     {
- //       animator = GetComponent<Animator>();
         animator = door_axis.GetComponent<Animator>();
         isOpen = false;
         audioSource = GetComponent<AudioSource>();
@@ -27,23 +27,25 @@ public class DoorMotion : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-
+        if (activation && !isOpen)
+        {
             animator.SetTrigger("Open");
             isOpen = true;
             //audioSource.Play();
             audioSource.PlayDelayed(0.5f);
-            audioSource.PlayOneShot(aClip);
+            // audioSource.PlayOneShot(aClip);
+        }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (isOpen)
+        if (isOpen && activation)
         {
             animator.SetTrigger("Close");
             isOpen = false;
             //audioSource.Play();
             audioSource.PlayDelayed(0.5f);
-            audioSource.PlayOneShot(aClip);
+            // audioSource.PlayOneShot(aClip);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.IO;
 
 public class SplineWalker : MonoBehaviour {
 
@@ -11,15 +12,31 @@ public class SplineWalker : MonoBehaviour {
 
 	public SplineWalkerMode mode;
     public int passengersCounter = 0;
+    private byte[] map;
 
-	private float progress;
+    private float progress;
 	private bool goingForward = true;
     // private bool isCoroutineExecuting = false;
 
     public Camera trainCamera;
 
-	private void Update () {
+    void OnGUI()
+    {
+        GUI.Label(new Rect(10, 10, 100, 20), "Passengers: " + passengersCounter);
 
+        //if (Input.GetKeyDown(KeyCode.M))
+        //{
+            Texture2D tex = null;
+
+            map = File.ReadAllBytes("map.png");
+            tex = new Texture2D(2, 2);
+            tex.LoadImage(map); //..this will auto-resize the texture dimensions.
+
+            GUI.DrawTexture(new Rect(10, 30, 100, 20), tex);
+        //}
+}
+
+    private void Update () {
         trainCamera.enabled = true;
         if (goingForward) {
 			progress += (Time.deltaTime / duration);

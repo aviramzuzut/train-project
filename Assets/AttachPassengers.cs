@@ -8,10 +8,16 @@ public class AttachPassengers : MonoBehaviour
     public GameObject station;
     public GameObject train;
     public GameObject lokomotive;
+    public GameObject door1;
+    public GameObject door2;
+
     public GameObject[] characters;
 
     private void OnTriggerEnter(Collider other)
     {
+        door1.gameObject.GetComponent<DoorMotion>().activation = true;
+        door2.gameObject.GetComponent<DoorMotion>().activation = true;
+
         if (other.gameObject.tag == "Wagon")
         {
             foreach (var character in characters)
@@ -33,5 +39,11 @@ public class AttachPassengers : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        door1.gameObject.GetComponent<DoorMotion>().activation = false;
+        door2.gameObject.GetComponent<DoorMotion>().activation = false;
     }
 }

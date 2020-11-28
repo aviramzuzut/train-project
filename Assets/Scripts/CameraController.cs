@@ -49,5 +49,11 @@ public class CameraController : MonoBehaviour
                 Debug.Log("Camera with name: " + cameras[currentCameraIndex].GetComponent<Camera>().name + ", is now enabled");
             }
         }
+
+        // Take a screenshot
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            ScreenCapture.CaptureScreenshot("ScreenShot.png", 4);
+        }
     }
 }
